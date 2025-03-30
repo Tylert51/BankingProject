@@ -18,24 +18,31 @@ public abstract class BankAccount {
         balance = bal;
     }
 
+    // given an int, will return the correctly formatted account number
     public String getAccountNumber() {
         return "AC" + accountNumber;
     }
 
+    // method that carries out a deposit
     public boolean deposit(double dep) {
         if(dep < 0) {
-            return false;
+            System.out.println("Failed Deposit - Must deposit more than $0, Account Balance: " + balance);
+            return false;   // return false if unsuccessful and print an error msg
         }
         balance += dep;
-        return true;
+        System.out.println("Successful Deposit, Account Balance: " + balance);
+        return true;    // returns true if successful and prints validation to user
     }
 
+    // method that carries out a withdrawal
     public boolean withdraw(double wd) {
-        if(wd > balance) {
-            return false;
+        if(wd > balance) {  // if trying to withdrawal more than what they have
+            System.out.println("Failed Withdrawal, Insufficient " + accountType + " balance, Account Balance: " + balance);
+            return false;   // return false if unsuccessful and print an error msg
         }
         balance -= wd;
-        return true;
+        System.out.println("Successful Withdrawal, Account Balance: " + balance);
+        return true;    // returns true if successful and prints validation to user
     }
 
     public String getAccountType() {
