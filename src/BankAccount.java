@@ -18,11 +18,14 @@ public abstract class BankAccount {
         balance = bal;
     }
 
-    public void setAccountNumber(int num) {
-        accountNumber = num;
+    public String getAccountNumber() {
+        return "AC" + accountNumber;
     }
 
     public boolean deposit(double dep) {
+        if(dep < 0) {
+            return false;
+        }
         balance += dep;
         return true;
     }
