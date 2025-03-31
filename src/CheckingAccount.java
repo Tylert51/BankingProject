@@ -19,7 +19,7 @@ public class CheckingAccount extends BankAccount {
             System.out.println("Failed Withdrawal, Insufficient " + getAccountType() + " balance, Account Balance: " + getBalance());
             return false;  // return false if balance is already negative and print an error msg
         }
-        if(Math.abs(newBal) > overDraftLimit) {
+        if(newBal < 0 && Math.abs(newBal) > overDraftLimit) {   // if person resorts to overdrafting for withdrawing
             System.out.println("Failed Withdrawal, Exceeded overdraft limit, Account Balance: " + getBalance());
             return false;   // returns false if they are trying to withdrawal more than their overdraft limit and prints an error msg
         }

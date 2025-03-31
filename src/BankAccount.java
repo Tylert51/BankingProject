@@ -1,11 +1,11 @@
 public abstract class BankAccount {
 
-    private int accountNumber;
+    private String accountNumber;
     private String accountType;
     private double balance;
 
     public BankAccount(int accNum, String accType, double bal) {
-        accountNumber = accNum;
+        accountNumber = "AC" + accNum;
         accountType = accType;
         balance = bal;
     }
@@ -20,7 +20,7 @@ public abstract class BankAccount {
 
     // given an int, will return the correctly formatted account number
     public String getAccountNumber() {
-        return "AC" + accountNumber;
+        return accountNumber;
     }
 
     // method that carries out a deposit
